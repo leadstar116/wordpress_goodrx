@@ -14,8 +14,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 // callback: validate options
 function goodrxplugin_callback_validate_options( $input ) {
 
-	// todo: add callback functionality..
+	// api url
+	if ( isset( $input['api_url'] ) ) {
 
+		$input['api_url'] = esc_url( $input['api_url'] );
+
+	}
 	return $input;
 
 }
