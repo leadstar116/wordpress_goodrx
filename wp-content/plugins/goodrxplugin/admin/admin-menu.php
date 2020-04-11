@@ -23,7 +23,7 @@ function goodrxplugin_add_toplevel_menu() {
 	*/
 
 	add_menu_page(
-		'GoodRX Plugin Settings',
+		'GoodRX Settings',
 		'GoodRX',
 		'manage_options',
 		'goodrxplugin',

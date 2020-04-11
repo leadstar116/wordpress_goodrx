@@ -31,4 +31,11 @@ if ( is_admin() ) {
 }
 
 
+// default plugin options
+function goodrxplugin_options_default() {
 
+	return array(
+		'api_url'     => 'https://api.paramountrx.com/qa/'
+	);
+
+}

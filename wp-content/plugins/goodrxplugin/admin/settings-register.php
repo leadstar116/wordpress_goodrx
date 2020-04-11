@@ -60,11 +60,11 @@ function goodrxplugin_register_settings() {
 
 	add_settings_field(
 		'api_url',
-		'API URL',
+		'API Url',
 		'goodrxplugin_callback_field_text',
 		'goodrxplugin',
 		'goodrxplugin_section_api',
-		[ 'id' => 'api_url', 'label' => 'API Url' ]
+		[ 'id' => 'api_url', 'label' => 'API endpoint for Paramount RX' ]
 	);
 
 }

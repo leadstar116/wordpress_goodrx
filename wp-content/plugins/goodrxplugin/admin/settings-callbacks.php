@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 // callback: validate options
-function myplugin_callback_validate_options( $input ) {
+function goodrxplugin_callback_validate_options( $input ) {
 
 	// todo: add callback functionality..
 
@@ -23,20 +23,26 @@ function myplugin_callback_validate_options( $input ) {
 
 
 // callback: api section
-function myplugin_callback_section_api() {
+function goodrxplugin_callback_section_api() {
 
-	echo '<p>These settings enable you to customize the WP Login screen.</p>';
+	echo '<p>These settings enable you to customize the API options.</p>';
 
 }
 
 
 
 // callback: text field
-function myplugin_callback_field_text( $args ) {
+function goodrxplugin_callback_field_text( $args ) {
 
-	// todo: add callback functionality..
+	$options = get_option( 'goodrxplugin_options', goodrxplugin_options_default() );
 
-	echo 'This will be a text field.';
+	$id    = isset( $args['id'] )    ? $args['id']    : '';
+	$label = isset( $args['label'] ) ? $args['label'] : '';
+
+	$value = isset( $options[$id] ) ? sanitize_text_field( $options[$id] ) : '';
+
+	echo '<input id="goodrxplugin_options_'. $id .'" name="goodrxplugin_options['. $id .']" type="text" size="40" value="'. $value .'"><br />';
+	echo '<label for="goodrxplugin_options_'. $id .'">'. $label .'</label>';
 
 }
 
