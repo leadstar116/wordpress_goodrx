@@ -1,4 +1,4 @@
-<?php //GoodRXPlugin Settings page
+<?php //ScriptSquarePlugin Settings page
 
 // exit if file is called directly
 if ( ! defined( 'ABSPATH' ) ) {
@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 }
 // display the plugin settings page
-function goodrxplugin_display_settings_page() {
+function scriptsquareplugin_display_settings_page() {
 
 	// check if user is allowed access
 	if ( ! current_user_can( 'manage_options' ) ) return;
@@ -21,10 +21,10 @@ function goodrxplugin_display_settings_page() {
 			<?php
 
 			// output security fields
-			settings_fields( 'goodrxplugin_options' );
+			settings_fields( 'scriptsquareplugin_options' );
 
 			// output setting sections
-			do_settings_sections( 'goodrxplugin' );
+			do_settings_sections( 'scriptsquareplugin' );
 
 			// submit button
 			submit_button();

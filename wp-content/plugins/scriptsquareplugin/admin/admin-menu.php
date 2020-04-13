@@ -1,4 +1,4 @@
-<?php //GoodRXPlugin Admin menu
+<?php //ScriptSquarePlugin Admin menu
 
 // exit if file is called directly
 if ( ! defined( 'ABSPATH' ) ) {
@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // add top-level administrative menu
-function goodrxplugin_add_toplevel_menu() {
+function scriptsquareplugin_add_toplevel_menu() {
 
 	/*
 		add_menu_page(
@@ -23,21 +23,21 @@ function goodrxplugin_add_toplevel_menu() {
 	*/
 
 	add_menu_page(
-		'GoodRX Settings',
-		'GoodRX',
+		'ScriptSquare Settings',
+		'ScriptSquare',
 		'manage_options',
-		'goodrxplugin',
-		'goodrxplugin_display_settings_page',
+		'scriptsquareplugin',
+		'scriptsquareplugin_display_settings_page',
 		'dashicons-admin-generic',
 		null
 	);
 
 }
-add_action( 'admin_menu', 'goodrxplugin_add_toplevel_menu' );
+add_action( 'admin_menu', 'scriptsquareplugin_add_toplevel_menu' );
 
 
 // add sub-level administrative menu
-function goodrxplugin_add_sublevel_menu() {
+function scriptsquareplugin_add_sublevel_menu() {
 
 	/*
 
@@ -54,12 +54,12 @@ function goodrxplugin_add_sublevel_menu() {
 
 	add_submenu_page(
 		'options-general.php',
-		'GoodRX Settings',
-		'GoodRX',
+		'ScriptSquare Settings',
+		'ScriptSquare',
 		'manage_options',
-		'goodrxplugin',
-		'goodrxplugin_display_settings_page'
+		'scriptsquareplugin',
+		'scriptsquareplugin_display_settings_page'
 	);
 
 }
-add_action( 'admin_menu', 'goodrxplugin_add_sublevel_menu' );
+add_action( 'admin_menu', 'scriptsquareplugin_add_sublevel_menu' );

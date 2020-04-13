@@ -1,4 +1,4 @@
-<?php // GoodRX - Core Functionality
+<?php // ScriptSquare - Core Functionality
 
 
 
@@ -11,14 +11,14 @@ if (!defined('ABSPATH')) {
 
 
 // Get Drug By Name
-function goodrxplugin_get_drug_by_name($content)
+function scriptsquareplugin_get_drug_by_name($content)
 {
     global $post;
     // only edit specific post types
     $types = array('drug');
 
     if ($post && in_array($post->post_type, $types, true)) {
-        $options = get_option('goodrxplugin_options', goodrxplugin_options_default());
+        $options = get_option('scriptsquareplugin_options', scriptsquareplugin_options_default());
 
         if (isset($options['api_url']) && !empty($options['api_url'])) {
 
@@ -51,13 +51,13 @@ function goodrxplugin_get_drug_by_name($content)
 // add the filter when main loop starts
 add_action('loop_start', function (WP_Query $query) {
     if ($query->is_main_query()) {
-        add_filter('the_content', 'goodrxplugin_get_drug_by_name', -10);
+        add_filter('the_content', 'scriptsquareplugin_get_drug_by_name', -10);
     }
 });
 
 // remove the filter when main loop ends
 add_action('loop_end', function (WP_Query $query) {
-    if (has_filter('the_content', 'goodrxplugin_get_drug_by_name')) {
-        remove_filter('the_content', 'goodrxplugin_get_drug_by_name');
+    if (has_filter('the_content', 'scriptsquareplugin_get_drug_by_name')) {
+        remove_filter('the_content', 'scriptsquareplugin_get_drug_by_name');
     }
 });

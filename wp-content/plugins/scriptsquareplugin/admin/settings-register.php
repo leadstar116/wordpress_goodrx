@@ -1,4 +1,4 @@
-<?php // GoodRXPlugin - Register Settings
+<?php // ScriptSquarePlugin - Register Settings
 
 // disable direct file access
 if ( ! defined( 'ABSPATH' ) ) {
@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 // register plugin settings
-function goodrxplugin_register_settings() {
+function scriptsquareplugin_register_settings() {
 
 	/*
 
@@ -22,9 +22,9 @@ function goodrxplugin_register_settings() {
 	*/
 
 	register_setting(
-		'goodrxplugin_options',
-		'goodrxplugin_options',
-		'goodrxplugin_callback_validate_options'
+		'scriptsquareplugin_options',
+		'scriptsquareplugin_options',
+		'scriptsquareplugin_callback_validate_options'
 	);
 
 	/*
@@ -39,10 +39,10 @@ function goodrxplugin_register_settings() {
 	*/
 
 	add_settings_section(
-		'goodrxplugin_section_api',
+		'scriptsquareplugin_section_api',
 		'API Settings',
-		'goodrxplugin_callback_section_api',
-		'goodrxplugin'
+		'scriptsquareplugin_callback_section_api',
+		'scriptsquareplugin'
 	);
 
 	/*
@@ -61,11 +61,11 @@ function goodrxplugin_register_settings() {
 	add_settings_field(
 		'api_url',
 		'API Url',
-		'goodrxplugin_callback_field_text',
-		'goodrxplugin',
-		'goodrxplugin_section_api',
+		'scriptsquareplugin_callback_field_text',
+		'scriptsquareplugin',
+		'scriptsquareplugin_section_api',
 		[ 'id' => 'api_url', 'label' => 'API endpoint for Paramount RX' ]
 	);
 
 }
-add_action( 'admin_init', 'goodrxplugin_register_settings' );
+add_action( 'admin_init', 'scriptsquareplugin_register_settings' );

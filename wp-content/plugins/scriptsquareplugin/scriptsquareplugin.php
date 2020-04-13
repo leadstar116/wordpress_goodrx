@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name:  GoodRXPlugin
-Description:  Custom plugin for GoodRX site.
+Plugin Name:  ScriptSquarePlugin
+Description:  Custom plugin for ScriptSquare site.
 Plugin URI:   https://profiles.wordpress.org/leadstar116/
 Author:       Leadstar116
 Version:      1.0
-Text Domain:  goodrxplugin
+Text Domain:  scriptsquareplugin
 Domain Path:  /languages
 License:      GPL v2 or later
 License URI:  https://www.gnu.org/licenses/gpl-2.0.txt
@@ -35,7 +35,7 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/core-functions.php';
 require_once plugin_dir_path( __FILE__ ) . 'includes/custom-post-type.php';
 
 // default plugin options
-function goodrxplugin_options_default() {
+function scriptsquareplugin_options_default() {
 
 	return array(
 		'api_url'     => 'https://api.paramountrx.com/qa/'

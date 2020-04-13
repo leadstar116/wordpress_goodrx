@@ -1,4 +1,4 @@
-<?php // GoodRX - Create Search Post Type
+<?php // ScriptSquare - Create Search Post Type
 
 
 
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 // Register Drug Custom Post Type
-function goodrxplugin_create_drug_posttype() {
+function scriptsquareplugin_create_drug_posttype() {
 	$supports = array(
 		'title', // post title
 		'editor', // post content
@@ -50,4 +50,4 @@ function goodrxplugin_create_drug_posttype() {
 	register_post_type('drug', $args);
 }
 // Hooking up our function to theme setup
-add_action( 'init', 'goodrxplugin_create_drug_posttype' );
+add_action( 'init', 'scriptsquareplugin_create_drug_posttype' );

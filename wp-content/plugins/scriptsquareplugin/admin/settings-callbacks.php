@@ -1,4 +1,4 @@
-<?php // GoodRX - Settings Callbacks
+<?php // ScriptSquare - Settings Callbacks
 
 
 
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 // callback: validate options
-function goodrxplugin_callback_validate_options( $input ) {
+function scriptsquareplugin_callback_validate_options( $input ) {
 
 	// api url
 	if ( isset( $input['api_url'] ) ) {
@@ -27,7 +27,7 @@ function goodrxplugin_callback_validate_options( $input ) {
 
 
 // callback: api section
-function goodrxplugin_callback_section_api() {
+function scriptsquareplugin_callback_section_api() {
 
 	echo '<p>These settings enable you to customize the API options.</p>';
 
@@ -36,17 +36,17 @@ function goodrxplugin_callback_section_api() {
 
 
 // callback: text field
-function goodrxplugin_callback_field_text( $args ) {
+function scriptsquareplugin_callback_field_text( $args ) {
 
-	$options = get_option( 'goodrxplugin_options', goodrxplugin_options_default() );
+	$options = get_option( 'scriptsquareplugin_options', scriptsquareplugin_options_default() );
 
 	$id    = isset( $args['id'] )    ? $args['id']    : '';
 	$label = isset( $args['label'] ) ? $args['label'] : '';
 
 	$value = isset( $options[$id] ) ? sanitize_text_field( $options[$id] ) : '';
 
-	echo '<input id="goodrxplugin_options_'. $id .'" name="goodrxplugin_options['. $id .']" type="text" size="40" value="'. $value .'"><br />';
-	echo '<label for="goodrxplugin_options_'. $id .'">'. $label .'</label>';
+	echo '<input id="scriptsquareplugin_options_'. $id .'" name="scriptsquareplugin_options['. $id .']" type="text" size="40" value="'. $value .'"><br />';
+	echo '<label for="scriptsquareplugin_options_'. $id .'">'. $label .'</label>';
 
 }
 
