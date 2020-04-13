@@ -38,7 +38,8 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/custom-post-type.php';
 function scriptsquareplugin_options_default() {
 
 	return array(
-		'api_url'     => 'https://api.paramountrx.com/qa/'
+		'api_url'     => 'https://api.paramountrx.com/qa/',
+		'api_key'     => 'fIlGvd7DPhahCBPT9HjLz8KhfXdraHWD9bJ6y4W1',
 	);
 
 }

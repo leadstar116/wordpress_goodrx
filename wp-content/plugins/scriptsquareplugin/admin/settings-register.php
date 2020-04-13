@@ -67,5 +67,14 @@ function scriptsquareplugin_register_settings() {
 		[ 'id' => 'api_url', 'label' => 'API endpoint for Paramount RX' ]
 	);
 
+	add_settings_field(
+		'api_key',
+		'API Key',
+		'scriptsquareplugin_callback_field_text',
+		'scriptsquareplugin',
+		'scriptsquareplugin_section_api',
+		[ 'id' => 'api_key', 'label' => 'API key for Paramount RX' ]
+	);
+
 }
 add_action( 'admin_init', 'scriptsquareplugin_register_settings' );
