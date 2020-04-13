@@ -32,6 +32,7 @@ if ( is_admin() ) {
 
 // include plugin dependencies: admin and public
 require_once plugin_dir_path( __FILE__ ) . 'includes/core-functions.php';
+require_once plugin_dir_path( __FILE__ ) . 'includes/custom-post-type.php';
 
 // default plugin options
 function goodrxplugin_options_default() {
