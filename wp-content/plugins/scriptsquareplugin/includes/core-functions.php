@@ -19,6 +19,7 @@ function scriptsquareplugin_get_drug_by_name($content)
     $types = array('drug');
 
     if ($post && in_array($post->post_type, $types, true)) {
+
         $options = get_option('scriptsquareplugin_options', scriptsquareplugin_options_default());
 
         if (isset($options['api_url']) && !empty($options['api_url'])) {
@@ -32,7 +33,15 @@ function scriptsquareplugin_get_drug_by_name($content)
                 )
             ];
 
-            $request = wp_remote_get($url . "/drugs?drugname=$post->post_name&includestrength=false", $args);
+            if($post->post_name == 'search') {
+                if($_GET['search']) {
+                    $request = wp_remote_get($url . "/drugs?drugname=".$_GET['search']."&includestrength=false", $args);
+                } else {
+
+                }
+            } else {
+                $request = wp_remote_get($url . "/drugs?drugname=$post->post_name&includestrength=false", $args);
+            }
 
             if (is_wp_error($request)) {
                 return false; // Bail early
@@ -95,6 +104,19 @@ add_action('loop_end', function (WP_Query $query) {
         remove_filter('the_content', 'scriptsquareplugin_get_drug_by_name');
     }
 });
+
+// Redirect 404 drug search
+function scriptsquareplugin_redirect_404($content)
+{
+    if (is_404() && strpos($_SERVER['REQUEST_URI'], 'drug') !== false) {
+        $uris = explode('/', $_SERVER['REQUEST_URI']);
+        $drug_name = (isset($uris[2]))? $uris[2] : '';
+        wp_redirect( home_url( '/drug/404' ).'?search='.$drug_name );
+        exit;
+    }
+}
+
+add_filter( 'template_redirect', 'scriptsquareplugin_redirect_404' );
 
 
 // custom plugin styles
