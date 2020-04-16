@@ -115,7 +115,7 @@ function scriptsquareplugin_redirect_404($content)
     }
 }
 
-//add_filter( 'template_redirect', 'scriptsquareplugin_redirect_404' );
+add_filter( 'template_redirect', 'scriptsquareplugin_redirect_404' );
 
 
 // custom plugin styles
