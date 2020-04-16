@@ -17,7 +17,6 @@ function scriptsquareplugin_get_drug_by_name($content)
     global $post;
     // only edit specific post types
     $types = array('drug');
-    echo 'asdfasdf'; exit;
     if ($post && in_array($post->post_type, $types, true)) {
 
         $options = get_option('scriptsquareplugin_options', scriptsquareplugin_options_default());
