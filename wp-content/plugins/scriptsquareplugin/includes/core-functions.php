@@ -34,8 +34,8 @@ function scriptsquareplugin_get_drug_by_name($content)
             ];
 
             if($post->post_name == 'search') {
-                if($_GET['search']) {
-                    $request = wp_remote_get($url . "/drugs?drugname=".$_GET['search']."&includestrength=false", $args);
+                if($_GET['keyword']) {
+                    $request = wp_remote_get($url . "/drugs?drugname=".$_GET['keyword']."&includestrength=false", $args);
                 } else {
 
                 }
@@ -111,7 +111,7 @@ function scriptsquareplugin_redirect_404($content)
     if (is_404() && strpos($_SERVER['REQUEST_URI'], 'drug') !== false) {
         $uris = explode('/', $_SERVER['REQUEST_URI']);
         $drug_name = (isset($uris[2]))? $uris[2] : '';
-        wp_redirect( home_url( '/drug/404' ).'?search='.$drug_name );
+        wp_redirect( home_url( '/drug/search' ).'?keyword='.$drug_name );
         exit;
     }
 }
